@@ -162,7 +162,8 @@ section {
   font-size: 25px;
 }
 
-.main-content {
+.main-content-feed,
+.main-content-profile {
   padding: 20px;
   overflow: hidden;
   background-color: var(--main-bg);
@@ -171,13 +172,13 @@ section {
   z-index: 100;
 }
 
-.main-content .header {
+.main-content-feed .header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.main-content .header-content button {
+.main-content-feed .header-content button {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -186,45 +187,48 @@ section {
   gap: 1rem;
 }
 
-.main-content .header-content button i {
+.main-content-feed .header-content button i {
   font-size: 20px;
 }
 
-.main-content .main-posts {
+.main-content-feed .main-posts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
 }
 
-.main-content .main-posts .post-box {
+.main-content-feed .main-posts .post-box {
   /* max-width: 450px; */
 
   /* center within grid cell */
   margin: auto;
 }
 
-.main-content .post-box img {
+.main-content-feed .post-box img {
   object-fit: cover;
   border-radius: 0.5rem;
 }
 
-.main-content .post-pic {
+.main-content-feed .post-pic {
+  width: 100%;
+  max-height: 500px;
+  aspect-ratio: 4 / 3;
   margin-bottom: 10px;
 }
 
-.main-content .post-info {
+.main-content-feed .post-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.main-content .post-profile {
+.main-content-feed .post-profile {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.main-content .post-img {
+.main-content-feed .post-img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,7 +238,7 @@ section {
   border-radius: 50%;
 }
 
-.main-content .post-img img {
+.main-content-feed .post-img img {
   width: 35px;
   height: 35px;
   object-fit: cover;
@@ -242,27 +246,29 @@ section {
   object-position: center;
 }
 
-.main-content .post-profile h3 {
+.main-content-feed .post-profile h3 {
   font-size: 12px;
   font-weight: 600;
 }
 
-.main-content .likes-comments {
+.main-content-feed .likes-comments {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.main-content .likes-comments .feed-likes,
-.main-content .likes-comments .feed-comments {
+.main-content-feed .likes-comments .feed-likes,
+.main-content-feed .likes-comments .feed-comments {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.main-content .likes-comments i {
+.main-content-feed .likes-comments i {
   font-size: 20px;
 }
+
+/*----- Profile Page Styles -----*/
 
 /*----- Utility Classes -----*/
 div.alert {
@@ -292,7 +298,14 @@ div.alert {
     padding: 10px;
   }
 
-  .main-content {
+  .main-content-feed,
+  .main-content-profile {
     margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-content-feed .main-posts {
+    grid-template-columns: 1fr;
   }
 }

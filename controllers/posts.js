@@ -10,4 +10,12 @@ module.exports = {
       console.error(err);
     }
   },
+
+  getProfile: async (req, res) => {
+    try {
+      res.render("profile");
+    } catch (err) {
+      console.error(err);
+    }
+  },
 };
