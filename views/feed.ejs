@@ -30,7 +30,7 @@
     <div class="sidebar">
       <!-- instaclone logo -->
       <a href="/feed" class="logo d-flex align-items-center gap-3">
-        <img src="./img/Instagram_icon.png" alt="logo" style="width: 40px" />
+        <img class="img-fluid" src="./img/Instagram_icon.png" alt="logo" />
         <h1 class="h4 m-0">Instaclone<span style="color: #e1306c">.</span></h1>
       </a>
 
@@ -39,7 +39,11 @@
         <div
           class="feed-profile-img d-flex align-items-center justify-content-center rounded-circle"
         >
-          <img src="./img/no-profile-pic.png" alt="profile-img" />
+          <img
+            class="img-fluid"
+            src="./img/no-profile-pic.png"
+            alt="profile-img"
+          />
         </div>
         <div class="name my-4">
           <span class="h5">Dua Lipa</span>
@@ -89,12 +93,48 @@
     <!-- Main Content -->
     <main class="main-content">
       <!-- header -->
-      <div class="header">
+      <div class="header mb-5">
         <div class="header-content">
-          <button type="button" class="btn">
+          <button type="button" class="btn border-0">
             <i class="bi bi-plus-circle-fill"></i>
             <div class="btn-text">Create Post</div>
           </button>
+        </div>
+      </div>
+
+      <!-- feed -->
+      <div class="feed-title pt-5 pb-3">
+        <h1>Feed</h1>
+      </div>
+
+      <!-- posts -->
+      <div class="main-posts">
+        <div class="post-box mb-4">
+          <!-- TODO: takes user to post page -->
+          <a href="">
+            <img class="img-fluid post-pic" src="./img/vacay-pic.jpg" alt="" />
+          </a>
+
+          <div class="post-info">
+            <div class="post-profile">
+              <div class="post-img">
+                <img class="img-fluid" src="./img/no-profile-pic.png" alt="" />
+              </div>
+              <h3 class="m-0">Dua Lipa</h3>
+            </div>
+
+            <div class="likes-comments">
+              <div class="feed-likes">
+                <i class="bi bi-heart"></i>
+                <span>0</span>
+              </div>
+
+              <div class="feed-comments">
+                <i class="bi bi-chat"></i>
+                <span>0</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

@@ -95,6 +95,10 @@ section {
   transition: 0.3s;
 }
 
+.sidebar .logo img {
+  max-width: 40px;
+}
+
 .sidebar .logo h1 {
   color: #fff;
 }
@@ -113,8 +117,8 @@ section {
 }
 
 .sidebar .feed-profile-img img {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 50%;
   object-position: center;
@@ -179,11 +183,84 @@ section {
   padding: 10px;
   border-radius: 8px;
   background: var(--gradient);
-  border: none;
   gap: 1rem;
 }
 
 .main-content .header-content button i {
+  font-size: 20px;
+}
+
+.main-content .main-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.main-content .main-posts .post-box {
+  /* max-width: 450px; */
+
+  /* center within grid cell */
+  margin: auto;
+}
+
+.main-content .post-box img {
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.main-content .post-pic {
+  margin-bottom: 10px;
+}
+
+.main-content .post-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-content .post-profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.main-content .post-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--instapink);
+  border-radius: 50%;
+}
+
+.main-content .post-img img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+  object-position: center;
+}
+
+.main-content .post-profile h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.main-content .likes-comments {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-content .likes-comments .feed-likes,
+.main-content .likes-comments .feed-comments {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.main-content .likes-comments i {
   font-size: 20px;
 }
 
