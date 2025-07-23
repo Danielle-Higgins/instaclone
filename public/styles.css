@@ -6,6 +6,7 @@
   --body-bg: rgb(41, 43, 51);
   --instapink: #e1306c;
   --main-bg: rgb(60, 63, 80);
+  --gradient: linear-gradient(to right, #e2336b, #fcac46);
 }
 
 /* ----- Base Styles ----- */
@@ -158,11 +159,32 @@ section {
 }
 
 .main-content {
+  padding: 20px;
+  overflow: hidden;
   background-color: var(--main-bg);
   min-height: 100vh;
   margin-left: 300px;
-  padding: 20px;
   z-index: 100;
+}
+
+.main-content .header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.main-content .header-content button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--gradient);
+  border: none;
+  gap: 1rem;
+}
+
+.main-content .header-content button i {
+  font-size: 20px;
 }
 
 /*----- Utility Classes -----*/
