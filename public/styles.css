@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Dont need the reset since its handled by Bootstrap */
+
+:root {
+  --body-bg: rgb(41, 43, 51);
+  --instapink: #e1306c;
+  --main-bg: rgb(60, 63, 80);
+}
+
+/* ----- Base Styles ----- */
+body {
+  line-height: 1.5;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background-color: var(--body-bg);
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  padding: 60px 0;
+}
+
+/* ----- Login/Signup Page Styles ----- */
+#login-form .signup-link,
+#signup-form .login-link {
+  color: var(--instapink);
+}
+
+#login-form .signup-link:hover,
+#signup-form .login-link:hover {
+  text-decoration: underline;
+}
+
+#login-form .input-group-text,
+#signup-form .input-group-text {
+  background-color: rgb(51, 54, 68);
+  border: none;
+  color: rgb(193, 195, 196);
+  font-size: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+#login-form input,
+#signup-form input {
+  background-color: rgb(51, 54, 68);
+  color: #fff;
+  border: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#signup-form .confirm-password {
+  border-radius: 20px;
+}
+
+#login-form label,
+#signup-form label {
+  color: rgb(193, 195, 196);
+}
+
+#login-form button,
+#signup-form button {
+  background-color: var(--instapink);
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+#login-form button:hover,
+#signup-form button:hover {
+  background-color: #df5080;
+}
+
+/* ----- Feed Page Styles ----- */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: var(--body-bg);
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.sidebar .logo h1 {
+  color: #fff;
+}
+
+.sidebar .feed-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar .feed-profile-img {
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--instapink);
+}
+
+.sidebar .feed-profile-img img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  object-position: center;
+}
+
+.sidebar .feed-about .box h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sidebar .feed-about .box span {
+  font-size: 0.9rem;
+}
+
+.sidebar .nav-link {
+  width: 100%;
+  font-size: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 20px;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  color: var(--instapink);
+}
+
+.sidebar .nav-link:hover::before,
+.sidebar .nav-link.active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 2px;
+  height: 17px;
+  background-color: var(--instapink);
+}
+
+.sidebar .nav-link .icon {
+  font-size: 25px;
+}
+
+.main-content {
+  background-color: var(--main-bg);
+  min-height: 100vh;
+  margin-left: 300px;
+  padding: 20px;
+  z-index: 100;
+}
+
+/*----- Utility Classes -----*/
+div.alert {
+  color: red;
+}
+
+/*----- Media Queries -----*/
+@media screen and (max-width: 900px) {
+  /* feed page */
+  .sidebar {
+    width: 60px;
+  }
+
+  .sidebar .logo {
+    justify-content: center;
+  }
+
+  .sidebar .logo h1,
+  .sidebar .feed-profile,
+  .sidebar .feed-about .box,
+  .sidebar .description {
+    display: none;
+  }
+
+  .sidebar .nav-link {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .main-content {
+    margin-left: 60px;
+  }
+}
