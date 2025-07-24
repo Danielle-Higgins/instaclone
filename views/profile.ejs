@@ -35,9 +35,9 @@
       </a>
 
       <!-- profile img -->
-      <div class="feed-profile mt-5">
+      <div class="sidebar-profile mt-5">
         <div
-          class="feed-profile-img d-flex align-items-center justify-content-center rounded-circle"
+          class="sidebar-profile-img d-flex align-items-center justify-content-center rounded-circle"
         >
           <img
             class="img-fluid"
@@ -51,7 +51,7 @@
       </div>
 
       <!-- about -->
-      <div class="feed-about d-flex justify-content-between mt-3">
+      <div class="sidebar-about d-flex justify-content-between mt-3">
         <div class="box text-center">
           <h3>0</h3>
           <span>Posts</span>
@@ -68,12 +68,12 @@
 
       <!-- nav links -->
       <nav class="nav flex-column mt-3">
-        <a href="/feed" class="nav-link">
+        <a href="/feed" class="nav-link active">
           <span class="icon"><i class="bi bi-grid"></i></span>
           <span class="description">Feed</span>
         </a>
 
-        <a href="" class="nav-link active">
+        <a href="" class="nav-link">
           <span class="icon"><i class="bi bi-person-circle"></i></span>
           <span class="description">Profile</span>
         </a>
@@ -93,12 +93,16 @@
     <!-- Main Content -->
     <main class="main-content-profile">
       <div class="container">
+        <!-- profile info (contains img and content) -->
         <div class="profile-info my-5">
+          <!-- profile img -->
           <div class="profile-img rounded-circle">
             <img src="./img/no-profile-pic.png" alt="" />
           </div>
 
+          <!-- profile content -->
           <div class="profile-content">
+            <!-- profile header -->
             <div class="profile-header mb-2">
               <div class="profile-user-name">
                 <h1>Dua Lipa</h1>
@@ -109,6 +113,7 @@
               </div>
             </div>
 
+            <!-- about profile -->
             <div class="profile-about">
               <div class="box text-center">
                 <h3>0</h3>
@@ -134,7 +139,7 @@
             <!-- TODO: takes user to post page -->
             <a href="">
               <img
-                class="img-fluid post-pic"
+                class="img-fluid post-pic mb-0"
                 src="./img/vacay-pic.jpg"
                 alt=""
               />
