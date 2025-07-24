@@ -68,12 +68,12 @@
 
       <!-- nav links -->
       <nav class="nav flex-column mt-3">
-        <a href="/feed" class="nav-link active">
+        <a href="/feed" class="nav-link">
           <span class="icon"><i class="bi bi-grid"></i></span>
           <span class="description">Feed</span>
         </a>
 
-        <a href="" class="nav-link">
+        <a href="" class="nav-link active">
           <span class="icon"><i class="bi bi-person-circle"></i></span>
           <span class="description">Profile</span>
         </a>
@@ -91,7 +91,58 @@
     </div>
 
     <!-- Main Content -->
-    <main class="main-content-profile"></main>
+    <main class="main-content-profile">
+      <div class="container">
+        <div class="profile-info my-5">
+          <div class="profile-img rounded-circle">
+            <img src="./img/no-profile-pic.png" alt="" />
+          </div>
+
+          <div class="profile-content">
+            <div class="profile-header mb-2">
+              <div class="profile-user-name">
+                <h1>Dua Lipa</h1>
+              </div>
+
+              <div class="follow-btn">
+                <button type="button" class="btn btn-primary">Follow</button>
+              </div>
+            </div>
+
+            <div class="profile-about">
+              <div class="box text-center">
+                <h3>0</h3>
+                <span>Posts</span>
+              </div>
+              <div class="box text-center">
+                <h3>0</h3>
+                <span>Followers</span>
+              </div>
+              <div class="box text-center">
+                <h3>0</h3>
+                <span>Following</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="horizontal m-auto mb-5"></div>
+
+        <!-- posts -->
+        <div class="profile-posts">
+          <div class="p-post-box mb-4">
+            <!-- TODO: takes user to post page -->
+            <a href="">
+              <img
+                class="img-fluid post-pic"
+                src="./img/vacay-pic.jpg"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- Add Bootstrap Framework to our webpage -->
     <script
