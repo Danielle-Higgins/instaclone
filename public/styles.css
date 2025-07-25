@@ -165,6 +165,18 @@ section {
   font-size: 25px;
 }
 
+/* ----- Modal Styles ----- */
+
+.modal-footer button {
+  background-color: var(--instapink);
+  color: #fff;
+}
+
+.modal-footer button:hover {
+  background-color: #df5080;
+  color: #fff;
+}
+
 /* ----- Shared Styles ----- */
 
 .main-content-feed,
