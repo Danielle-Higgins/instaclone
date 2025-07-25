@@ -93,6 +93,21 @@
     <!-- Main Content -->
     <main class="main-content-profile">
       <div class="container">
+        <!-- header -->
+        <div class="header d-flex align-items-center justify-content-end">
+          <div class="header-content">
+            <button
+              type="button"
+              class="btn border-0 d-flex align-items-center gap-3"
+              data-bs-toggle="modal"
+              data-bs-target="#profile-modal"
+            >
+              <i class="bi bi-plus-circle-fill"></i>
+              <div class="btn-text">Create Post</div>
+            </button>
+          </div>
+        </div>
+
         <!-- profile info (contains img and content) -->
         <div class="profile-info my-5">
           <!-- profile img -->
@@ -148,6 +163,78 @@
         </div>
       </div>
     </main>
+
+    <!-- modal itself -->
+    <div
+      class="modal fade"
+      id="profile-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!--modal header-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Create a Post</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <!-- makes post request to /post/createPost -->
+            <form action="" enctype="multipart/form-data" method="post">
+              <!-- title -->
+              <div class="mb-4">
+                <label for="title" class="form-label">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  name="title"
+                />
+              </div>
+
+              <!-- caption -->
+              <div class="mb-4">
+                <label for="caption" class="form-label">Caption</label>
+                <textarea
+                  class="form-control"
+                  name="caption"
+                  id="caption"
+                ></textarea>
+              </div>
+
+              <!-- image -->
+              <div class="mb-4">
+                <label for="imgUpload" class="form-label">
+                  Upload an image</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imgUpload"
+                  name="imgFile"
+                />
+              </div>
+
+              <!-- modal footer -->
+              <div class="modal-footer">
+                <!-- upload button -->
+                <button type="submit" class="btn border-0" value="Upload">
+                  Create Post
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Add Bootstrap Framework to our webpage -->
     <script

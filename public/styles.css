@@ -189,6 +189,18 @@ section {
   z-index: 100;
 }
 
+.main-content-feed .header-content button,
+.main-content-profile .header-content button {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--gradient);
+}
+
+.main-content-feed .header-content button i,
+.main-content-profile .header-content button i {
+  font-size: 20px;
+}
+
 .main-content-feed .main-posts,
 .main-content-profile .profile-posts {
   display: grid;
@@ -218,16 +230,6 @@ section {
 }
 
 /* ----- Feed Page Styles ----- */
-
-.main-content-feed .header-content button {
-  padding: 10px;
-  border-radius: 8px;
-  background: var(--gradient);
-}
-
-.main-content-feed .header-content button i {
-  font-size: 20px;
-}
 
 .main-content-feed .post-info {
   display: flex;
