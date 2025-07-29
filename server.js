@@ -7,7 +7,8 @@ const MongoStore = require("connect-mongo");
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
-// TODO: import routes
+
+// import routes
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 
