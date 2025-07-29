@@ -18,4 +18,12 @@ module.exports = {
       console.error(err);
     }
   },
+
+  getPost: async (req, res) => {
+    try {
+      res.render("post");
+    } catch (err) {
+      console.error(err);
+    }
+  },
 };

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post • Instaclone</title>
+
+    <!-- Link to favicon -->
+    <link rel="icon" type="image/png" href="./img/Instagram_icon.png" />
+
+    <!-- Link to bootstrap for extra styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link to Bootstrap for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Link to our stylesheet -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- instaclone logo -->
+      <a href="/feed" class="logo d-flex align-items-center gap-3">
+        <img class="img-fluid" src="./img/Instagram_icon.png" alt="logo" />
+        <h1 class="h4 m-0">Instaclone<span style="color: #e1306c">.</span></h1>
+      </a>
+
+      <!-- profile img -->
+      <div class="sidebar-profile mt-5">
+        <div
+          class="sidebar-profile-img d-flex align-items-center justify-content-center rounded-circle"
+        >
+          <img
+            class="img-fluid"
+            src="./img/no-profile-pic.png"
+            alt="profile-img"
+          />
+        </div>
+        <div class="name my-4">
+          <span class="h5">Dua Lipa</span>
+        </div>
+      </div>
+
+      <!-- about -->
+      <div class="sidebar-about d-flex justify-content-between mt-3">
+        <div class="box text-center">
+          <h3>0</h3>
+          <span>Posts</span>
+        </div>
+        <div class="box text-center">
+          <h3>0</h3>
+          <span>Followers</span>
+        </div>
+        <div class="box text-center">
+          <h3>0</h3>
+          <span>Following</span>
+        </div>
+      </div>
+
+      <!-- nav links -->
+      <nav class="nav flex-column mt-3">
+        <a href="/feed" class="nav-link">
+          <span class="icon"><i class="bi bi-grid"></i></span>
+          <span class="description">Feed</span>
+        </a>
+
+        <a href="" class="nav-link">
+          <span class="icon"><i class="bi bi-person-circle"></i></span>
+          <span class="description">Profile</span>
+        </a>
+
+        <a href="" class="nav-link">
+          <span class="icon"><i class="bi bi-gear-fill"></i></span>
+          <span class="description">Settings</span>
+        </a>
+
+        <a href="/logout" class="nav-link">
+          <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
+          <span class="description">Logout</span>
+        </a>
+      </nav>
+    </div>
+
+    <main class="main-content-post">
+      <div class="container">
+        <!-- create comment button -->
+        <div class="header d-flex align-items-center justify-content-end">
+          <div class="header-content">
+            <button
+              type="button"
+              class="btn border-0 d-flex align-items-center gap-3"
+              data-bs-toggle="modal"
+              data-bs-target="#post-modal"
+            >
+              <i class="bi bi-plus-circle-fill"></i>
+              <div class="btn-text">Add a Comment</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="post py-5 mt-3 mx-auto">
+          <!-- profile -->
+          <div class="profile mb-3">
+            <div class="profile-img rounded-circle">
+              <img class="img-fluid" src="./img/no-profile-pic.png" alt="" />
+            </div>
+            <h3 class="m-0">Dua Lipa</h3>
+          </div>
+
+          <!-- post image -->
+          <div class="post-img">
+            <img class="img-fluid w-100" src="./img/vacay-pic.jpg" alt="" />
+          </div>
+
+          <!-- post info -->
+          <div class="post-info mt-3">
+            <div class="likes-comments">
+              <div class="post-likes">
+                <i class="bi bi-heart"></i>
+                <span>0</span>
+              </div>
+
+              <div class="post-comments">
+                <i class="bi bi-chat"></i>
+                <span>0</span>
+              </div>
+            </div>
+
+            <!-- delete btn -->
+            <!-- TODO: make delete request using method override (/post/deletePost/POSTID?_method=DELETE) -->
+            <form action="" method="post">
+              <button type="submit" class="btn delete-btn border-0">
+                <i class="bi bi-trash3-fill"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- post title -->
+          <div class="post-title my-2">
+            <h1 class="h3">Trip to Asia</h1>
+          </div>
+
+          <!-- post caption -->
+          <div class="post-caption">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
+              dolores eveniet provident quo laborum. Pariatur, ex suscipit
+              possimus voluptatem rem quos molestiae reiciendis nesciunt,
+              perferendis laudantium, et iusto praesentium nostrum.
+            </p>
+          </div>
+
+          <!-- show post comments -->
+          <ul class="post-comments p-0 mt-4">
+            <li>- Hope you had a great time!</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- modal itself -->
+    <div
+      class="modal fade"
+      id="post-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!--modal header-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Add a Comment</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <!-- makes post request to /comment/createComment -->
+            <form action="" method="post">
+              <!-- comment -->
+              <div class="mb-4">
+                <label for="comment" class="form-label">Comment</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="comment"
+                  name="comment"
+                />
+              </div>
+
+              <!-- modal footer -->
+              <div class="modal-footer">
+                <button type="submit" class="btn border-0">Add Comment</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Bootstrap Framework to our webpage -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

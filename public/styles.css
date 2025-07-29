@@ -180,7 +180,8 @@ section {
 /* ----- Shared Styles ----- */
 
 .main-content-feed,
-.main-content-profile {
+.main-content-profile,
+.main-content-post {
   padding: 20px;
   overflow: hidden;
   background-color: var(--main-bg);
@@ -190,14 +191,16 @@ section {
 }
 
 .main-content-feed .header-content button,
-.main-content-profile .header-content button {
+.main-content-profile .header-content button,
+.main-content-post .header-content button {
   padding: 10px;
   border-radius: 8px;
   background: var(--gradient);
 }
 
 .main-content-feed .header-content button i,
-.main-content-profile .header-content button i {
+.main-content-profile .header-content button i,
+.main-content-post .header-content button i {
   font-size: 20px;
 }
 
@@ -217,7 +220,8 @@ section {
 }
 
 .main-content-feed .post-box img,
-.main-content-profile .p-post-box img {
+.main-content-profile .p-post-box img,
+.main-content-post .post-img img {
   object-fit: cover;
   border-radius: 0.5rem;
 }
@@ -229,21 +233,15 @@ section {
   margin-bottom: 10px;
 }
 
-/* ----- Feed Page Styles ----- */
-
-.main-content-feed .post-info {
+.main-content-feed .post-profile,
+.main-content-post .profile {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
 }
 
-.main-content-feed .post-profile {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.main-content-feed .post-img {
+.main-content-feed .post-img,
+.main-content-post .profile-img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,29 +250,42 @@ section {
   border: 2px solid var(--instapink);
 }
 
-.main-content-feed .post-img img {
+.main-content-feed .post-img img,
+.main-content-post .profile-img img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   object-position: center;
 }
 
-.main-content-feed .post-profile h3 {
-  font-size: 12px;
-  font-weight: 600;
+.main-content-feed .post-info,
+.main-content-post .post-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.main-content-feed .likes-comments {
+.main-content-feed .likes-comments,
+.main-content-post .likes-comments {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .main-content-feed .likes-comments .feed-likes,
-.main-content-feed .likes-comments .feed-comments {
+.main-content-feed .likes-comments .feed-comments,
+.main-content-post .post-likes,
+.main-content-post .post-comments {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+/* ----- Feed Page Styles ----- */
+
+.main-content-feed .post-profile h3 {
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .main-content-feed .likes-comments i {
@@ -300,7 +311,7 @@ section {
 }
 
 .main-content-profile .profile-img img {
-  width: 195;
+  width: 195px;
   height: 195px;
   object-fit: cover;
   border-radius: 50%;
@@ -328,6 +339,35 @@ section {
   height: 2px;
   width: 80%;
   background-color: #fff;
+}
+
+/*----- Post Page Styles -----*/
+
+.main-content-post .post {
+  max-width: 700px;
+}
+
+.main-content-post .profile h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.main-content-post .post-img img {
+  max-height: 700px;
+}
+
+.main-content-post .likes-comments {
+  font-size: 1.2rem;
+}
+
+.main-content-post .delete-btn {
+  background-color: red;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.main-content-post .delete-btn:hover {
+  transform: scale(1.05);
 }
 
 /*----- Utility Classes -----*/
@@ -390,7 +430,8 @@ div.alert {
   }
 
   .main-content-feed,
-  .main-content-profile {
+  .main-content-profile,
+  .main-content-post {
     margin-left: 60px;
   }
 }
