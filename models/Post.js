@@ -1,10 +1,5 @@
 const mongoose = require("mongoose");
 
-/**
- * THINGS TO CONSIDER:
- * number of comments
- */
-
 // blueprint for documents inserted into posts collection
 const PostSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -12,6 +7,7 @@ const PostSchema = new mongoose.Schema({
   cloudinaryId: { type: String, require: true },
   caption: { type: String, required: true },
   likes: { type: Number, required: true },
+  comments: { type: Number, required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   createdAt: { type: Date, default: Date.now },
 });

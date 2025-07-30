@@ -115,10 +115,15 @@
 
       <!-- posts -->
       <div class="main-posts">
+        <% for(let i = 0; i < posts.length; i++) { %>
         <div class="post-box mb-4">
-          <!-- TODO: takes user to post page -->
-          <a href="">
-            <img class="img-fluid post-pic" src="./img/vacay-pic.jpg" alt="" />
+          <!-- takes user to post page -->
+          <a href="/post/<%= posts[i]._id %>">
+            <img
+              class="img-fluid post-pic"
+              src="<%= posts[i].image %>"
+              alt=""
+            />
           </a>
 
           <div class="post-info">
@@ -127,23 +132,24 @@
               <div class="post-img rounded-circle">
                 <img class="img-fluid" src="./img/no-profile-pic.png" alt="" />
               </div>
-              <h3 class="m-0">Dua Lipa</h3>
+              <h3 class="m-0"><%= posts[i].user.userName %></h3>
             </div>
 
             <!-- likes and comments -->
             <div class="likes-comments">
               <div class="feed-likes">
                 <i class="bi bi-heart"></i>
-                <span>0</span>
+                <span><%= posts[i].likes %></span>
               </div>
 
               <div class="feed-comments">
                 <i class="bi bi-chat"></i>
-                <span>0</span>
+                <span><%= posts[i].comments %> </span>
               </div>
             </div>
           </div>
         </div>
+        <% } %>
       </div>
     </main>
 
@@ -171,7 +177,11 @@
           <!-- modal body -->
           <div class="modal-body">
             <!-- makes post request to /post/createPost -->
-            <form action="" enctype="multipart/form-data" method="post">
+            <form
+              action="/post/createPost"
+              enctype="multipart/form-data"
+              method="post"
+            >
               <!-- title -->
               <div class="mb-4">
                 <label for="title" class="form-label">Title</label>
@@ -180,6 +190,7 @@
                   class="form-control"
                   id="title"
                   name="title"
+                  required
                 />
               </div>
 
@@ -190,6 +201,7 @@
                   class="form-control"
                   name="caption"
                   id="caption"
+                  required
                 ></textarea>
               </div>
 
@@ -202,7 +214,8 @@
                   type="file"
                   class="form-control"
                   id="imgUpload"
-                  name="imgFile"
+                  name="file"
+                  required
                 />
               </div>
 
