@@ -30,7 +30,13 @@ module.exports = {
 
   getPost: async (req, res) => {
     try {
-      res.render("post");
+      // grab the post by its id from the url using query parameters
+      const post = await Post.findById(req.params.id).populate(
+        "user",
+        "userName"
+      );
+
+      res.render("post", { post: post, user: req.user });
     } catch (err) {
       console.error(err);
     }

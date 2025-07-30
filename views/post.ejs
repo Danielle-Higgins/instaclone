@@ -6,7 +6,7 @@
     <title>Post • Instaclone</title>
 
     <!-- Link to favicon -->
-    <link rel="icon" type="image/png" href="./img/Instagram_icon.png" />
+    <link rel="icon" type="image/png" href="/img/Instagram_icon.png" />
 
     <!-- Link to bootstrap for extra styling -->
     <link
@@ -23,14 +23,14 @@
     />
 
     <!-- Link to our stylesheet -->
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- instaclone logo -->
       <a href="/feed" class="logo d-flex align-items-center gap-3">
-        <img class="img-fluid" src="./img/Instagram_icon.png" alt="logo" />
+        <img class="img-fluid" src="/img/Instagram_icon.png" alt="logo" />
         <h1 class="h4 m-0">Instaclone<span style="color: #e1306c">.</span></h1>
       </a>
 
@@ -41,7 +41,7 @@
         >
           <img
             class="img-fluid"
-            src="./img/no-profile-pic.png"
+            src="/img/no-profile-pic.png"
             alt="profile-img"
           />
         </div>
@@ -111,14 +111,14 @@
           <!-- profile -->
           <div class="profile mb-3">
             <div class="profile-img rounded-circle">
-              <img class="img-fluid" src="./img/no-profile-pic.png" alt="" />
+              <img class="img-fluid" src="/img/no-profile-pic.png" alt="" />
             </div>
-            <h3 class="m-0">Dua Lipa</h3>
+            <h3 class="m-0"><%= post.user.userName %></h3>
           </div>
 
           <!-- post image -->
           <div class="post-img">
-            <img class="img-fluid w-100" src="./img/vacay-pic.jpg" alt="" />
+            <img class="img-fluid w-100" src="<%= post.image %>" alt="" />
           </div>
 
           <!-- post info -->
@@ -126,15 +126,17 @@
             <div class="likes-comments">
               <div class="post-likes">
                 <i class="bi bi-heart"></i>
-                <span>0</span>
+                <span><%= post.likes %></span>
               </div>
 
               <div class="post-comments">
                 <i class="bi bi-chat"></i>
-                <span>0</span>
+                <span><%= post.comments %></span>
               </div>
             </div>
 
+            <!-- check if user made the post or not -->
+            <% if (post.user.id === user.id) { %>
             <!-- delete btn -->
             <!-- TODO: make delete request using method override (/post/deletePost/POSTID?_method=DELETE) -->
             <form action="" method="post">
@@ -142,21 +144,17 @@
                 <i class="bi bi-trash3-fill"></i>
               </button>
             </form>
+            <% } %>
           </div>
 
           <!-- post title -->
           <div class="post-title my-2">
-            <h1 class="h3">Trip to Asia</h1>
+            <h1 class="h3"><%= post.title %></h1>
           </div>
 
           <!-- post caption -->
           <div class="post-caption">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              dolores eveniet provident quo laborum. Pariatur, ex suscipit
-              possimus voluptatem rem quos molestiae reiciendis nesciunt,
-              perferendis laudantium, et iusto praesentium nostrum.
-            </p>
+            <p><%= post.caption %></p>
           </div>
 
           <!-- show post comments -->
