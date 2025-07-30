@@ -15,7 +15,13 @@ module.exports = {
         .populate("user", "userName")
         .lean();
 
-      res.render("feed", { posts: posts, user: req.user });
+      const numOfPosts = await Post.countDocuments({ user: req.user.id });
+
+      res.render("feed", {
+        posts: posts,
+        user: req.user,
+        numOfPosts: numOfPosts,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -23,7 +29,7 @@ module.exports = {
 
   getProfile: async (req, res) => {
     try {
-      // grab the user profile info
+      // grab the user profile info based on id in url
       const user = await User.findById(req.params.id);
 
       // get posts of the user with the id in the url
@@ -31,10 +37,15 @@ module.exports = {
         .sort({ createdAt: "desc" })
         .populate("user", "userName");
 
+      const numPosts = await Post.countDocuments({ user: req.params.id });
+      const numOfPosts = await Post.countDocuments({ user: req.user.id });
+
       res.render("profile", {
         posts: posts,
         userProfile: user,
         user: req.user,
+        numPosts: numPosts,
+        numOfPosts: numOfPosts,
       });
     } catch (err) {
       console.error(err);
@@ -49,7 +60,13 @@ module.exports = {
         "userName"
       );
 
-      res.render("post", { post: post, user: req.user });
+      const numOfPosts = await Post.countDocuments({ user: req.user.id });
+
+      res.render("post", {
+        post: post,
+        user: req.user,
+        numOfPosts: numOfPosts,
+      });
     } catch (err) {
       console.error(err);
     }

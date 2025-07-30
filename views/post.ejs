@@ -53,7 +53,7 @@
       <!-- about -->
       <div class="sidebar-about d-flex justify-content-between mt-3">
         <div class="box text-center">
-          <h3>0</h3>
+          <h3><%= numOfPosts %></h3>
           <span>Posts</span>
         </div>
         <div class="box text-center">
@@ -73,7 +73,7 @@
           <span class="description">Feed</span>
         </a>
 
-        <a href="" class="nav-link">
+        <a href="/profile/<%= user.id %>" class="nav-link">
           <span class="icon"><i class="bi bi-person-circle"></i></span>
           <span class="description">Profile</span>
         </a>
@@ -109,12 +109,14 @@
 
         <div class="post py-5 mt-3 mx-auto">
           <!-- profile -->
-          <div class="profile mb-3">
-            <div class="profile-img rounded-circle">
-              <img class="img-fluid" src="/img/no-profile-pic.png" alt="" />
+          <a href="/profile/<%= post.user._id %>">
+            <div class="profile mb-3">
+              <div class="profile-img rounded-circle">
+                <img class="img-fluid" src="/img/no-profile-pic.png" alt="" />
+              </div>
+              <h3 class="m-0"><%= post.user.userName %></h3>
             </div>
-            <h3 class="m-0"><%= post.user.userName %></h3>
-          </div>
+          </a>
 
           <!-- post image -->
           <div class="post-img">
