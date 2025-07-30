@@ -15,7 +15,7 @@ router.post("/signup", authController.postSignup);
 
 router.get("/feed", ensureAuth, postsController.getFeed);
 
-router.get("/profile", ensureAuth, postsController.getProfile);
+router.get("/profile/:id", ensureAuth, postsController.getProfile);
 
 router.get("/logout", authController.logout);
 

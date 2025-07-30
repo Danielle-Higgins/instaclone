@@ -286,6 +286,7 @@ section {
 .main-content-feed .post-profile h3 {
   font-size: 12px;
   font-weight: 600;
+  color: #fff;
 }
 
 .main-content-feed .likes-comments i {
@@ -350,10 +351,6 @@ section {
 .main-content-post .profile h3 {
   font-size: 1rem;
   font-weight: 600;
-}
-
-.main-content-post .post-img img {
-  max-height: 700px;
 }
 
 .main-content-post .likes-comments {

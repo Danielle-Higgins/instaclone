@@ -1,6 +1,7 @@
 // import cloudinary middleware
 const cloudinary = require("../middleware/cloudinary");
 
+const User = require("../models/User");
 const Post = require("../models/Post"); // import Post model
 // TODO: import comment model
 
@@ -14,7 +15,7 @@ module.exports = {
         .populate("user", "userName")
         .lean();
 
-      res.render("feed", { posts: posts });
+      res.render("feed", { posts: posts, user: req.user });
     } catch (err) {
       console.error(err);
     }
@@ -22,7 +23,19 @@ module.exports = {
 
   getProfile: async (req, res) => {
     try {
-      res.render("profile");
+      // grab the user profile info
+      const user = await User.findById(req.params.id);
+
+      // get posts of the user with the id in the url
+      const posts = await Post.find({ user: req.params.id })
+        .sort({ createdAt: "desc" })
+        .populate("user", "userName");
+
+      res.render("profile", {
+        posts: posts,
+        userProfile: user,
+        user: req.user,
+      });
     } catch (err) {
       console.error(err);
     }

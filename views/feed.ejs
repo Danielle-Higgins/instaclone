@@ -6,7 +6,7 @@
     <title>Feed • Instaclone</title>
 
     <!-- Link to favicon -->
-    <link rel="icon" type="image/png" href="./img/Instagram_icon.png" />
+    <link rel="icon" type="image/png" href="/img/Instagram_icon.png" />
 
     <!-- Link to bootstrap for extra styling -->
     <link
@@ -47,7 +47,7 @@
         </div>
 
         <div class="name my-4">
-          <span class="h5">Dua Lipa</span>
+          <span class="h5"><%= user.userName %></span>
         </div>
       </div>
 
@@ -74,7 +74,7 @@
           <span class="description">Feed</span>
         </a>
 
-        <a href="" class="nav-link">
+        <a href="/profile/<%= user.id %>" class="nav-link">
           <span class="icon"><i class="bi bi-person-circle"></i></span>
           <span class="description">Profile</span>
         </a>
@@ -128,12 +128,14 @@
 
           <div class="post-info">
             <!-- profile -->
-            <div class="post-profile">
-              <div class="post-img rounded-circle">
-                <img class="img-fluid" src="/img/no-profile-pic.png" alt="" />
+            <a href="/profile/<%= posts[i].user._id %>">
+              <div class="post-profile">
+                <div class="post-img rounded-circle">
+                  <img class="img-fluid" src="/img/no-profile-pic.png" alt="" />
+                </div>
+                <h3 class="m-0"><%= posts[i].user.userName %></h3>
               </div>
-              <h3 class="m-0"><%= posts[i].user.userName %></h3>
-            </div>
+            </a>
 
             <!-- likes and comments -->
             <div class="likes-comments">
