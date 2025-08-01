@@ -8,7 +8,10 @@ const { ensureAuth } = require("../middleware/auth");
 
 router.get("/:id", ensureAuth, postsController.getPost);
 
-// process the image
+// POST request --> process the image
 router.post("/createPost", upload.single("file"), postsController.createPost);
+
+// DELETE request
+router.delete("/deletePost/:id", postsController.deletePost);
 
 module.exports = router;
