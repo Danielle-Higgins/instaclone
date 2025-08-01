@@ -92,6 +92,8 @@
 
     <main class="main-content-post">
       <div class="container">
+        <!-- check if you are on your post -->
+        <% if (post.user.id !== user.id) { %>
         <!-- create comment button -->
         <div class="header d-flex align-items-center justify-content-end">
           <div class="header-content">
@@ -106,6 +108,7 @@
             </button>
           </div>
         </div>
+        <% } %>
 
         <div class="post py-5 mt-3 mx-auto">
           <!-- profile -->
@@ -193,16 +196,16 @@
           <!-- modal body -->
           <div class="modal-body">
             <!-- makes post request to /comment/createComment -->
-            <form action="" method="post">
+            <form action="/comment/createComment" method="post">
               <!-- comment -->
               <div class="mb-4">
                 <label for="comment" class="form-label">Comment</label>
-                <input
-                  type="text"
+                <textarea
                   class="form-control"
                   id="comment"
                   name="comment"
-                />
+                  required
+                ></textarea>
               </div>
 
               <!-- modal footer -->
