@@ -3,7 +3,7 @@ const cloudinary = require("../middleware/cloudinary");
 
 const User = require("../models/User");
 const Post = require("../models/Post"); // import Post model
-// TODO: import comment model
+const Comment = require("../models/Comment");
 
 module.exports = {
   getFeed: async (req, res) => {
@@ -62,10 +62,18 @@ module.exports = {
 
       const numOfPosts = await Post.countDocuments({ user: req.user.id });
 
+      // grab the comments of the post
+      const comments = await Comment.find({ post: req.params.id })
+        .sort({
+          createdAt: "desc",
+        })
+        .lean();
+
       res.render("post", {
         post: post,
         user: req.user,
         numOfPosts: numOfPosts,
+        comments: comments,
       });
     } catch (err) {
       console.error(err);

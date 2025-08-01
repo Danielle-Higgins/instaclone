@@ -166,7 +166,9 @@
 
           <!-- show post comments -->
           <ul class="post-comments p-0 mt-4">
-            <li>- Hope you had a great time!</li>
+            <% for (let i = 0; i < comments.length; i++) { %>
+            <li>- <%= comments[i].comment %></li>
+            <% } %>
           </ul>
         </div>
       </div>
@@ -196,7 +198,7 @@
           <!-- modal body -->
           <div class="modal-body">
             <!-- makes post request to /comment/createComment -->
-            <form action="/comment/createComment" method="post">
+            <form action="/comment/createComment/<%= post.id %>" method="post">
               <!-- comment -->
               <div class="mb-4">
                 <label for="comment" class="form-label">Comment</label>
