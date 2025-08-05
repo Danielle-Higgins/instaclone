@@ -41,7 +41,7 @@
         >
           <img
             class="img-fluid"
-            src="/img/no-profile-pic.png"
+            src="<%= user.profileImg || '/img/no-profile-pic.png' %>"
             alt="profile-img"
           />
         </div>
@@ -131,7 +131,11 @@
             <a href="/profile/<%= posts[i].user._id %>">
               <div class="post-profile">
                 <div class="post-img rounded-circle">
-                  <img class="img-fluid" src="/img/no-profile-pic.png" alt="" />
+                  <img
+                    class="img-fluid"
+                    src="<%= posts[i].user.profileImg || '/img/no-profile-pic.png' %>"
+                    alt="profile picture"
+                  />
                 </div>
                 <h3 class="m-0"><%= posts[i].user.userName %></h3>
               </div>

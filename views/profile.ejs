@@ -41,7 +41,7 @@
         >
           <img
             class="img-fluid"
-            src="/img/no-profile-pic.png"
+            src="<%= user.profileImg || '/img/no-profile-pic.png' %>"
             alt="profile-img"
           />
         </div>
@@ -117,7 +117,22 @@
         <div class="profile-info my-5">
           <!-- profile img -->
           <div class="profile-img rounded-circle">
-            <img src="/img/no-profile-pic.png" alt="" />
+            <img
+              src="<%= userProfile.profileImg || '/img/no-profile-pic.png' %>"
+              alt="profile picture"
+            />
+
+            <!-- if your on your profile page -->
+            <% if (userProfile.id === user.id) { %>
+            <button
+              type="button"
+              class="camera-btn btn rounded-circle border-0"
+              data-bs-toggle="modal"
+              data-bs-target="#camera-modal"
+            >
+              <i class="bi bi-camera-fill"></i>
+            </button>
+            <% } %>
           </div>
 
           <!-- profile content -->
@@ -172,7 +187,7 @@
       </div>
     </main>
 
-    <!-- modal itself -->
+    <!-- profile modal -->
     <div
       class="modal fade"
       id="profile-modal"
@@ -240,6 +255,57 @@
                 <button type="submit" class="btn border-0" value="Upload">
                   Create Post
                 </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- camera modal -->
+    <div
+      class="modal fade"
+      id="camera-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!--modal header-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-title">Upload Profile Image</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- modal body -->
+          <div class="modal-body">
+            <form
+              action="/profile/upload?_method=PUT"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <!-- image -->
+              <div class="mb-4">
+                <label for="profileImg" class="form-label">Title</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="profileImg"
+                  name="file"
+                  required
+                />
+              </div>
+
+              <!-- modal footer -->
+              <div class="modal-footer">
+                <!-- upload button -->
+                <button type="submit" class="btn border-0">Upload Photo</button>
               </div>
             </form>
           </div>

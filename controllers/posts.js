@@ -12,7 +12,7 @@ module.exports = {
       // grab all the posts and the user who made it
       const posts = await Post.find()
         .sort({ createdAt: "desc" })
-        .populate("user", "userName")
+        .populate("user", "userName profileImg")
         .lean();
 
       const numOfPosts = await Post.countDocuments({ user: req.user.id });
@@ -38,6 +38,8 @@ module.exports = {
         .populate("user", "userName");
 
       const numPosts = await Post.countDocuments({ user: req.params.id });
+
+      // number of logged in users posts
       const numOfPosts = await Post.countDocuments({ user: req.user.id });
 
       res.render("profile", {
@@ -57,7 +59,7 @@ module.exports = {
       // grab the post by its id from the url using query parameters
       const post = await Post.findById(req.params.id).populate(
         "user",
-        "userName"
+        "userName profileImg"
       );
 
       const numOfPosts = await Post.countDocuments({ user: req.user.id });
@@ -116,6 +118,23 @@ module.exports = {
 
       console.log("Deleted Post");
       res.redirect(`/profile/${post.user}`);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
+  uploadProfilePic: async (req, res) => {
+    try {
+      // upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+
+      // update the users profile image in db
+      await User.findByIdAndUpdate(req.user.id, {
+        profileImg: result.secure_url,
+        cloudinaryId: result.public_id,
+      });
+
+      res.redirect(`/profile/${req.user.id}`); // refresh
     } catch (err) {
       console.error(err);
     }

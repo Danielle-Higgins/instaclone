@@ -6,6 +6,8 @@ const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
+  profileImg: { type: String, default: "" },
+  cloudinaryId: { type: String, default: "" },
 });
 
 // Password hash middleware (hashing the password to store in users collection).
