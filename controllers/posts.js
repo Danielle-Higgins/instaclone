@@ -62,13 +62,18 @@ module.exports = {
         "userName profileImg"
       );
 
+      // set the number of comments the post has
+      post.comments = await Comment.countDocuments({
+        post: req.params.id,
+      });
+
+      await post.save();
+
       const numOfPosts = await Post.countDocuments({ user: req.user.id });
 
       // grab the comments of the post
       const comments = await Comment.find({ post: req.params.id })
-        .sort({
-          createdAt: "desc",
-        })
+        .populate("user", "profileImg")
         .lean();
 
       res.render("post", {

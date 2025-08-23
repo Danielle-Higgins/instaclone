@@ -92,8 +92,6 @@
 
     <main class="main-content-post">
       <div class="container">
-        <!-- check if you are on your post -->
-        <% if (post.user.id !== user.id) { %>
         <!-- create comment button -->
         <div class="header d-flex align-items-center justify-content-end">
           <div class="header-content">
@@ -108,7 +106,6 @@
             </button>
           </div>
         </div>
-        <% } %>
 
         <div class="post py-5 mt-3 mx-auto">
           <!-- profile -->
@@ -175,7 +172,21 @@
           <!-- show post comments -->
           <ul class="post-comments p-0 mt-4">
             <% for (let i = 0; i < comments.length; i++) { %>
-            <li>- <%= comments[i].comment %></li>
+            <li class="comment mb-4">
+              <a href="/profile/<%= comments[i].user._id %>">
+                <div class="profile">
+                  <div class="profile-img rounded-circle">
+                    <img
+                      class="img-fluid"
+                      src="<%= comments[i].user.profileImg || '/img/no-profile-pic.png' %>"
+                      alt="profile picture"
+                    />
+                  </div>
+                </div>
+              </a>
+
+              <span><%= comments[i].comment %></span>
+            </li>
             <% } %>
           </ul>
         </div>

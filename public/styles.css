@@ -274,8 +274,7 @@ section {
 
 .main-content-feed .likes-comments .feed-likes,
 .main-content-feed .likes-comments .feed-comments,
-.main-content-post .post-likes,
-.main-content-post .post-comments {
+.main-content-post .post-likes {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -398,6 +397,12 @@ section {
 
 .main-content-post .delete-btn:hover {
   transform: scale(1.05);
+}
+
+.main-content-post .comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /*----- Utility Classes -----*/
