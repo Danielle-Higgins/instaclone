@@ -9,6 +9,7 @@ const PostSchema = new mongoose.Schema({
   likes: { type: Number, required: true },
   comments: { type: Number, required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  likedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   createdAt: { type: Date, default: Date.now },
 });
 

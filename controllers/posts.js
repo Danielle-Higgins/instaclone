@@ -105,6 +105,34 @@ module.exports = {
     }
   },
 
+  likePost: async (req, res) => {
+    try {
+      // Find post by id
+      const post = await Post.findById({ _id: req.params.id });
+
+      // check if user id is stored in the array
+      const alreadyLiked = post.likedBy.includes(req.user.id);
+
+      // unlike post
+      if (alreadyLiked) {
+        post.likedBy.splice(post.likedBy.indexOf(req.user.id), 1);
+        post.likes -= 1;
+      } else {
+        // like post
+        post.likedBy.push(req.user.id);
+        post.likes += 1;
+      }
+
+      // save changes to db
+      await post.save();
+
+      // respond back to client
+      res.json({ likes: post.likes, liked: !alreadyLiked });
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
   deletePost: async (req, res) => {
     try {
       // Find post by id

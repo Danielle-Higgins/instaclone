@@ -122,7 +122,7 @@
             <img
               class="img-fluid post-pic"
               src="<%= posts[i].image %>"
-              alt=""
+              alt="post picture"
             />
           </a>
 
@@ -144,8 +144,14 @@
             <!-- likes and comments -->
             <div class="likes-comments">
               <div class="feed-likes">
-                <i class="bi bi-heart"></i>
-                <span><%= posts[i].likes %></span>
+                <i
+                  id="heart-<%= posts[i]._id %>"
+                  class="bi <%= posts[i].likedBy.map(id => id.toString()).includes(user.id.toString()) ? 'bi-heart-fill' : 'bi-heart' %>"
+                  onclick="likePost('<%= posts[i]._id %>')"
+                ></i>
+                <span id="like-count-<%= posts[i]._id %>"
+                  ><%= posts[i].likes %></span
+                >
               </div>
 
               <div class="feed-comments">
@@ -244,5 +250,7 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+
+    <script src="/index.js"></script>
   </body>
 </html>
