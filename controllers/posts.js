@@ -149,6 +149,9 @@ module.exports = {
       // Delete post from db
       await Post.findByIdAndDelete({ _id: req.params.id });
 
+      // Delete the comments under the post
+      await Comment.deleteMany({ post: req.params.id });
+
       console.log("Deleted Post");
       res.redirect(`/profile/${post.user}`);
     } catch (err) {
