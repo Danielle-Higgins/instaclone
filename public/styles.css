@@ -386,6 +386,10 @@ section {
   font-size: 1.2rem;
 }
 
+.main-content-post .likes-comments .post-likes {
+  cursor: pointer;
+}
+
 .main-content-post .delete-btn {
   background-color: red;
   color: #fff;

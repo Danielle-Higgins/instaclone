@@ -134,8 +134,12 @@
           <div class="post-info mt-3">
             <div class="likes-comments">
               <div class="post-likes">
-                <i class="bi bi-heart"></i>
-                <span><%= post.likes %></span>
+                <i
+                  id="heart-<%= post._id %>"
+                  class="bi <%= post.likedBy.map(id => id.toString()).includes(user.id.toString()) ? 'bi-heart-fill' : 'bi-heart' %>"
+                  onclick="likePost('<%= post._id %>')"
+                ></i>
+                <span id="like-count-<%= post._id %>"><%= post.likes %></span>
               </div>
 
               <div class="post-comments">
@@ -230,5 +234,7 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+
+    <script src="/index.js"></script>
   </body>
 </html>
