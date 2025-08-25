@@ -29,7 +29,7 @@ Passwords: terra1234, bob12345, yoda1234
 
 ## Optimizations
 
-If/when I improve this project, I would love to implement a follow system so user can follow others. I would also love to create a settings page so the user would be able to change their password as well as delete their account if they choose.
+If/when I improve this project, I would love to implement a follow system so the user can follow others. I would also love to create a settings page so the user would be able to change their password as well as delete their account if they choose.
 
 ## Lessons Learned
 
