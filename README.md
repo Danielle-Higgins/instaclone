@@ -20,3 +20,17 @@ Welcome to a stripped down version of Instagram! It has all the main features su
   <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white">
   <img src="https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white">
 </p>
+
+## If you want to try this project out with dummy accounts:
+
+Emails: terra@example.com, bob@example.com, yoda@email.com
+<br>
+Passwords: terra1234, bob12345, yoda1234
+
+## Optimizations
+
+If/when I improve this project, I would love to implement a follow system so user can follow others. I would also love to create a settings page so the user would be able to change their password as well as delete their account if they choose.
+
+## Lessons Learned
+
+I learned how to use Bootstrap for styling as well as use method override for making PUT and DELETE request using forms. I also learned how to use Cloudinary for image hosting as well as handling image uploading.
