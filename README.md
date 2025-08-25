@@ -21,6 +21,8 @@ Welcome to a stripped down version of Instagram! It has all the main features su
   <img src="https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white">
 </p>
 
+This project is built using Node.js with the Express.js framework. It also uses Passport/Passport Local for user authentication, bcrypt for password hashing, along with express sessions and flash to flash error messages for incorrect logins. All of the users data will be stored in a MongoDB database. First the user will need to sign up entering their username, email, password and confirm their password as well. Once they sign up, they will be automatically logged in where they will be redirected to the feed page where they will see all the posts available. The user can like/unlike a post, visit the post page to view it more closely and add comments. The user can view their profile as well as others and delete their own posts and comments if they choose. All images are hosted on Cloudinary.
+
 ## If you want to try this project out with dummy accounts:
 
 Emails: terra@example.com, bob@example.com, yoda@email.com
